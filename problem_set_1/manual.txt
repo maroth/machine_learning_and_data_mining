@@ -1,0 +1,144 @@
+Choice
+    T: 7
+        T: 4
+        F: 3
+            Choice T -> Wait T
+    F: 5
+        T: 2
+        F: 3
+            Choice F -> Wait F
+Error Rate: 5 / 12
+
+Bar
+    T: 6
+        T: 3
+        F: 3
+            Bar T -> Wait Random(T)
+    F: 6
+        T: 3
+        F: 3
+            Bar F -> Wait Random(F)
+Rorr Rate: 6 / 12
+
+Day
+    T: 5
+        T: 2
+        F: 3
+            Day T -> Wait F
+    F: 7
+        T: 4
+        F: 3
+            Day F -> Wait T
+Error Rate: 5 / 12
+
+Hungry
+    T: 7
+        T: 5
+        F: 2
+            Hungry T -> Wait T
+    F: 5
+        T: 1
+        F: 4
+            Hungry F -> Wait F
+Error Rate: 3 / 12
+
+Patron
+    Some: 4
+        T: 4
+        F: 0
+            Patron Some -> Wait T
+    Full: 6
+        T: 2
+        F: 4
+            Patron Full -> Wait F
+    None: 2
+        T: 0
+        F: 2
+            Patron None -> Wait F
+Error Rate: 2 / 12
+
+Price
+    $: 7
+        T: 3
+        F: 4
+            Price $ -> Wait F
+    $$: 2
+        T: 2
+        F: 0
+            Price $$ -> Wait T
+    $$$: 3
+        T: 1
+        F: 2
+            Price $$$ -> Wait F
+Error Rate: 4 / 12
+
+Rain
+    T: 4
+        T: 2
+        F: 2
+            Rain T -> Wait Random(T)
+    F: 8
+        T: 4
+        F: 4
+            Rain F -> Wait Random(F)
+Error Rate: 6 / 12
+
+Booking
+    T: 4
+        T: 2
+        F: 2
+            Booking T -> Wait Random(T)
+    F: 8
+        T: 4
+        F: 4
+            Booking F -> Wait Random(F)
+Error Rate: 6 / 12
+
+Type
+    French: 2
+        T: 1
+        F: 1
+            Type French -> Wait Random(T)
+    Thai: 4
+        T: 2
+        F: 2
+            Type Thai -> Wait Random(F)
+    Swiss: 4
+        T: 2
+        F: 2
+            Type Swiss -> Wait Random(F)
+    Italian: 2
+        T: 1
+        F: 1
+            Type Italian -> Wait Random(T)
+Error Rate: 6 / 12
+
+Time
+    0: 5
+        T: 4
+        F: 1
+            Time 0 -> Wait T
+    20: 3
+        T: 1
+        F: 2
+            Time 20 -> Wait F
+    40: 2
+        T: 1
+        F: 1
+            Time 40 -> Wait Random(F)
+    60: 2
+        T: 0
+        F: 2
+            Time 60 -> Wait F
+              
+    Segments: 0 | 20 40 60
+    Rule: Time > 5: Wait F, Time <= 5: Wait T
+Error Rate: 3 / 12
+
+
+The best rule is the Patron Rule: 
+            Patron None -> Wait F
+            Patron Some -> Wait T
+            Patron Full -> Wait F
+
+Therefore, in the situation described in exercise 2, Bob would wait for a table.
