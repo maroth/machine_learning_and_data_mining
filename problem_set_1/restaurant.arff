@@ -1,0 +1,26 @@
+@RELATION restaurant
+@ATTRIBUTE Choice {T, F}
+@ATTRIBUTE Bar {T, F}
+@ATTRIBUTE Day {T, F}
+@ATTRIBUTE Hungry {T, F}
+@ATTRIBUTE Patron {Some, Full, None}
+@ATTRIBUTE Price {$, $$, $$$}
+@ATTRIBUTE Rain {T, F}
+@ATTRIBUTE Booking {T, F}
+@ATTRIBUTE Type {French, Thai, Swiss, Italian}
+@ATTRIBUTE Time NUMERIC
+@ATTRIBUTE Wait {T, F}
+
+@DATA
+T, F, F, T, Some, $$$, F, T, French, 0, T
+T, F, F, T, Full, $, F, F, Thai, 40, F
+T, T, F, F, Some, $, F, F, Swiss, 0, T
+T, F, T, T, Full, $, F, F, Thai, 20, T
+T, F, T, F, Full, $$$, F, T, French, 60, F
+F, T, F, T, Some, $$, T, F, Italian, 0, T
+F, T, F, F, None, $, T, F, Swiss, 20, F
+F, F, F, T, Some, $$, T, T, Thai, 0, T
+F, T, T, F, Full, $, T, F, Swiss, 60, F
+T, T, T, T, Full, $$$, F, T, Italian, 20, F
+F, F, F, F, None, $, F, F, Thai, 0, F
+T, T, T, T, Full, $, F, F, Swiss, 40, T
