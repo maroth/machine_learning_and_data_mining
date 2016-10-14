@@ -1,0 +1,58 @@
+The attribute Price best predicts whether the car gets stolen or not. It gets 13 out of 15 predictions right.
+
+WEKA Output:
+
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.OneR -B 6
+Relation:     car
+Instances:    15
+Attributes:   6
+              Type
+              Location
+              Price
+              State
+              Color
+              Stolen
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+Price:
+	High	-> T
+	Medium	-> F
+	Low	-> F
+(13/15 instances correct)
+
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correctly Classified Instances          13               86.6667 %
+Incorrectly Classified Instances         2               13.3333 %
+Kappa statistic                          0.7273
+Mean absolute error                      0.1333
+Root mean squared error                  0.3651
+Relative absolute error                 26.7717 %
+Root relative squared error             73.1902 %
+Total Number of Instances               15     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.714    0.000    1.000      0.714    0.833      0.756    0.857     0.848     T
+                 1.000    0.286    0.800      1.000    0.889      0.756    0.857     0.800     F
+Weighted Avg.    0.867    0.152    0.893      0.867    0.863      0.756    0.857     0.822     
+
+=== Confusion Matrix ===
+
+ a b   <-- classified as
+ 5 2 | a = T
+ 0 8 | b = F
+
+

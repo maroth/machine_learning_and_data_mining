@@ -1,0 +1,25 @@
+@RELATION car
+
+@ATTRIBUTE Type {Sport,SUV,Compact}
+@ATTRIBUTE Location {Town,Country,Suburb}
+@ATTRIBUTE Price {High,Medium,Low}
+@ATTRIBUTE State {Good,Medium,Bad}
+@ATTRIBUTE Color {Red,White,Blue,Green}
+@ATTRIBUTE Stolen {T,F}
+
+@DATA
+Sport	Town	High	Good	Red	T
+Sport	Country	Medium	Medium	White	T
+Sport	Suburb	High	Bad	Blue	T
+Compact	Suburb	Low	Good	Green	F
+SUV	Country	Medium	Bad	White	F
+Compact	Country	Low	Medium	Blue	F
+SUV	Town	Low	Bad	Red	T
+Compact	Country	Medium	Bad	Green	F
+Compact	Town	High	Medium	Red	T
+Sport	Country	High	Good	White	T
+SUV	Town	Medium	Good	Green	F
+SUV	Suburb	Low	Bad	White	F
+Compact	Suburb	Low	Good	Green	F
+Compact	Town	High	Good	Red	T
+SUV	Suburb	Medium	Medium	Blue	F
