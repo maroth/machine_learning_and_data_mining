@@ -1,0 +1,73 @@
+Is Logan a Scot?
+
+Here is our knowledge:
+
+Bread   Lager   Whiskey Porr    Socc    Scot
+-------------------------------------------
+No	    No	    Yes	    Yes	    Yes	    No
+Yes	    No	    Yes	    Yes	    Yes	    No
+Yes	    Yes	    No	    No	    Yes	    No
+Yes	    Yes	    No	    No	    No	    No
+No	    Yes	    No	    No	    Yes	    No
+No	    No	    No	    Yes	    No	    No
+Yes	    No	    Yes	    Yes	    Yes	    Yes
+No	    Yes	    No	    No	    Yes	    Yes
+Yes	    Yes	    Yes	    Yes	    No	    Yes
+Yes	    Yes	    No	    Yes	    No	    Yes
+Yes	    Yes	    No	    Yes	    Yes	    Yes
+Yes	    No	    Yes	    Yes	    No	    Yes
+Yes	    No	    Yes	    No	    No	    Yes
+
+Our evidence (Logan) is as follows:
+
+E = [Bread, !Lager, Whiskey, Porridge, !Socc]
+
+The chances of being or not being a Scot overall are:
+
+P[Scot] = 7 / 13
+P[!Scot] = 6 / 13
+
+Now we analyze the chance of being a Scot independently for all the features we have of Logan:
+
+P[Bread|Scot] = 6 / 7
+P[!Lager|Scot] = 3 / 7
+P[Whiskey|Scot] = 4 / 7
+P[Porr|Scot] = 5 / 7
+P[!Socc|Scot] = 4 / 7
+
+Now for not being a Scot:
+
+P[Bread|!Scot] = 3 / 6
+P[!Lager|!Scot] = 3 / 6
+P[Whiskey|!Scot] = 2 / 6
+P[Porr|!Scot] = 3 / 6
+P[!Socc|!Scot] = 2 / 6
+
+Next, we can multiply over all the various features, as we assume them to be statistically independent:
+
+P[Scot|E] = P[Bread|Scot] * P[!Lager|Scot] * P[Whiskey|Scot] * P[Porr|Scot] * P[!Socc|Scot] * P[Scot] / P[E]
+P[!Scot|E] = P[Bread|!Scot] * P[!Lager|!Scot] * P[Whiskey|!Scot] * P[Porr|!Scot] * P[!Socc|!Scot] * P[!Scot] / P[E]
+
+Putting in the values from above gives us:
+
+P[Scot|E] = (7/13) * (6/7) * (3/7) * (4/7) * (5/7) * (4/7) * (7/13) / P[E]
+P[!Scot|E] = (3/6) * (3/6) * (2/6) * (3/6) * (2/6) * (6/13) / P[E]
+
+We can ignore the P[E] as it is constant. So we get the numerical result:
+
+P[Scot|E] = 0.02484172028 
+P[!Scot|E] = 0.00641025641 
+
+Now all we need to do is normalize to a standard probability:
+
+P[Scot|E] = 0.02484172028 / (0.02484172028 + 0.00641025641) = 0.79488476925
+P[!Scot|E] = 0.00641025641 / (0.02484172028 + 0.00641025641) = 0.20511523074
+
+So therefore, there is an 80% chance that Logan is in fact a Scot.
+
+Comparing this value with the one output by WEKA:
+
+PWEKA[Scot|E] = 0.822  
+PWEKA[!Scot|E] = 0.178
+
+The values are close, but not precicely accurate. Either these are rounding errors, or I made some mistake. I do think they way I did the math is correct in general, though, so I decided to leave it as it is.

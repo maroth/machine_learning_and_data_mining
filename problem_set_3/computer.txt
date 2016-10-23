@@ -190,73 +190,98 @@ Info(Credit)      = (6/9) * I(6/6, 0/6) + (3/9) * I(2/3, 1/3)
 Gain(Credit)      = 0.50 - 0.31 j
                   = 0.19
 
-The best information gain for the STUDENT=YES node is offered by either attribute of AGE or INCOME
+The best information gain for the STUDENT=YES node is offered by attribute CREDIT
 
 
-======================
-STUDENT=YES AGE=SENIOR
-======================
+=======================
+STUDENT=YES CREDIT=GOOD
+=======================
 
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
+Middle-aged	High	Yes	    Good	    Yes
 Senior	    Medium	Yes	    Good	    Yes
 Senior	    Low	    Yes	    Good	    Yes
+Middle-aged	High	Yes	    Good	    Yes
+Youth	    Low	    Yes	    Good	    Yes
 Senior	    Medium	Yes	    Good	    Yes
+
+This is a YES leaf
+
+
+============================
+STUDENT=YES CREDIT=EXCELLENT
+============================
+
+
+Age         Income  Student Credit      Computer
+------------------------------------------------
+Youth	    High    Yes	    Excellent	Yes
+Middle-aged	Low	    Yes	    Excellent	Yes
 
 Senior	    Low	    Yes	    Excellent	No
 
 
 STARTING POINT
-                    p = 3 (positive)
+                    p = 2 (positive)
                     q = 1 (negative)
-                    n = 4 
+                    n = 3 
 
-          I(3/4, 1/4) = 0.811
+          I(2/3, 1/3) = 0.91
+
+Info(Age)         = 0
+
+Gain(Age)         = 0.91
+
+Info(Income)      = (1/3) * 0 + (2/3) * I(1/2, 1/2)
+                  = (2/3) * 1
+                  = 0.66
+
+Gain(Income)      = 0.91 - 0.66
+                  = 0.25
+
+Info(Credit)      = (3/3) * I(3/3, 0/3) 
+                  = -(1) * log_2(1) - (0) * log_2(0)
+                  = ?
+
+Gain(Credit)      = not applicable, there is only one value
+                    but different results. Not usefull for decision tree.
+
+The best information gain for the STUDENT=NO node is offered by the attribute AGE
 
 
-Info(Income)      = (2/4) * I(2/2, 0/2) + (2/4) * I(1/2, 1/2) 
-                  = (2/4) * 1
-                  = 0.50
-
-Gain(Income)      = 0.81 - 0.50
-                  = 0.31
-
-Info(Credit)      = (3/4) * I(3/3, 0/3) + (1/4) * I(0/1, 1/1)                
-                  = 0
-
-Gain(Credit)      = 0.81 - 0
-                  = 0.81
-
-The best information gain for the STUDENT=YES AGE=SENIOR node is offered by the attribute CREDIT
-
-
-===========================
-STUDENT=YES AGE=MIDDLE-AGED
-===========================
-
+============================================
+STUDENT=YES CREDIT=EXCELLENT AGE=MIDDLE-AGED
+============================================
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	High	Yes	    Good	    Yes
-Middle-aged	High	Yes	    Good	    Yes
 Middle-aged	Low	    Yes	    Excellent	Yes
-
 
 This is a YES leaf.
 
 
-=====================
-STUDENT=YES AGE=YOUTH
-=====================
-
+======================================
+STUDENT=YES CREDIT=EXCELLENT AGE=YOUTH
+======================================
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Youth	    Low	    Yes	    Good	    Yes
 Youth	    High    Yes	    Excellent	Yes
 
-THis is a YES leaf.
+This is a YES leaf.
+
+
+=======================================
+STUDENT=YES CREDIT=EXCELLENT AGE=SENIOR
+=======================================
+
+Age         Income  Student Credit      Computer
+------------------------------------------------
+Senior	    Low	    Yes	    Excellent	No
+
+This is a NO leaf.
 
 
 ==========
@@ -308,15 +333,12 @@ According to the collected information, we can build the following descision tre
 
 
 Student?
-    Yes: Age?
-        Senior:
-            Credit?
-                Good: YES
-                Excellent: NO
-        Middle-Aged:
-            YES
-        Youth:
-            YES
+    Yes:Credit?
+        Good: YES
+        Excellent: Age?
+            Youth: YES
+            Middle-aged: YES
+            Senior: NO
     No: Age?
         Senior: NO
         Middle-Aged: YES
@@ -349,31 +371,5 @@ Student = No
 |  Age = Middle-aged: Yes
 |  Age = Youth: No
 
-In WEKAs tree, Edward would also buy a computer.
 
-However, the trees are not identical, but they seem fairly equivalent. 
-
-Why did I get a different result?
-
-After Student = Yes, WEKA decided that CREDIT had a higher information gain than AGE.
-
-Double checking my calculation:
-
-
-Info(Age)         = (4/9) * I(3/4, 1/4) + (3/9) * I(3/3, 0/3) + (2/9) * I(2/2, 0/2)
-                  = (4/9) * 0.81 + (3/9) * 0 + (2/9) * 0
-                  = (4/9) * 0.81
-                  = 0.36
-
-Gain(Age)         = 0.50 - 0.36 
-                  = 0.14
-
-
-Info(Credit)      = (6/9) * I(6/6, 0/6) + (3/9) * I(2/3, 1/3)                
-                  = (3/9) * I(2/3, 1/3)
-                  = (3/9 * 0.92
-                  = 0.31
-
-Gain(Credit)      = 0.50 - 0.31 j
-                  = 0.19
-
+These trees are identical. YAY! :)

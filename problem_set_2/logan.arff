@@ -1,0 +1,11 @@
+@RELATION Scotts
+
+@ATTRIBUTE Shortbread {Yes,No}
+@ATTRIBUTE Lager {Yes,No}
+@ATTRIBUTE Whiskey {Yes,No}
+@ATTRIBUTE Porridge {Yes,No}
+@ATTRIBUTE Soccer {Yes,No}
+@ATTRIBUTE Scottish {Yes,No}
+
+@DATA
+Yes No Yes Yes No ?
