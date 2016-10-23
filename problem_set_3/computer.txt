@@ -11,21 +11,21 @@ Ground Truth:
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	High	Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Senior	    Low	    Yes	    Good	    Yes
-Middle-aged	High	Yes	    Good	    Yes
-Youth	    Low	    Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Youth	    High    Yes	    Excellent	Yes
-Middle-aged	Medium	No	    Excellent	Yes
-Middle-aged	Low	    Yes	    Excellent	Yes
+Middle-aged High    Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Senior      Low     Yes     Good        Yes
+Middle-aged High    Yes     Good        Yes
+Youth       Low     Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Youth       High    Yes     Excellent   Yes
+Middle-aged Medium  No      Excellent   Yes
+Middle-aged Low     Yes     Excellent   Yes
 
-Youth	    High	No	    Good	    No
-Youth	    Medium	No	    Good	    No
-Youth	    High	No	    Excellent	No
-Senior	    Low	    Yes	    Excellent	No
-Senior	    Medium	No	    Excellent	No
+Youth       High    No      Good        No
+Youth       Medium  No      Good        No
+Youth       High    No      Excellent   No
+Senior      Low     Yes     Excellent   No
+Senior      Medium  No      Excellent   No
 
 
 First, we need to choose an attribute for our root node.
@@ -146,16 +146,16 @@ STUDENT=YES
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	High	Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Senior	    Low	    Yes	    Good	    Yes
-Middle-aged	High	Yes	    Good	    Yes
-Youth	    Low	    Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Youth	    High    Yes	    Excellent	Yes
-Middle-aged	Low	    Yes	    Excellent	Yes
+Middle-aged High    Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Senior      Low     Yes     Good        Yes
+Middle-aged High    Yes     Good        Yes
+Youth       Low     Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Youth       High    Yes     Excellent   Yes
+Middle-aged Low     Yes     Excellent   Yes
 
-Senior	    Low	    Yes	    Excellent	No
+Senior      Low     Yes     Excellent   No
 
 
 STARTING POINT
@@ -200,12 +200,12 @@ STUDENT=YES CREDIT=GOOD
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	High	Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Senior	    Low	    Yes	    Good	    Yes
-Middle-aged	High	Yes	    Good	    Yes
-Youth	    Low	    Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
+Middle-aged High    Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Senior      Low     Yes     Good        Yes
+Middle-aged High    Yes     Good        Yes
+Youth       Low     Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
 
 This is a YES leaf
 
@@ -217,10 +217,10 @@ STUDENT=YES CREDIT=EXCELLENT
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Youth	    High    Yes	    Excellent	Yes
-Middle-aged	Low	    Yes	    Excellent	Yes
+Youth       High    Yes     Excellent   Yes
+Middle-aged Low     Yes     Excellent   Yes
 
-Senior	    Low	    Yes	    Excellent	No
+Senior      Low     Yes     Excellent   No
 
 
 STARTING POINT
@@ -257,7 +257,7 @@ STUDENT=YES CREDIT=EXCELLENT AGE=MIDDLE-AGED
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	Low	    Yes	    Excellent	Yes
+Middle-aged Low     Yes     Excellent   Yes
 
 This is a YES leaf.
 
@@ -268,7 +268,7 @@ STUDENT=YES CREDIT=EXCELLENT AGE=YOUTH
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Youth	    High    Yes	    Excellent	Yes
+Youth       High    Yes     Excellent   Yes
 
 This is a YES leaf.
 
@@ -279,7 +279,7 @@ STUDENT=YES CREDIT=EXCELLENT AGE=SENIOR
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Senior	    Low	    Yes	    Excellent	No
+Senior      Low     Yes     Excellent   No
 
 This is a NO leaf.
 
@@ -291,12 +291,12 @@ STUDENT=NO
 
 Age         Income  Student Credit      Computer
 ------------------------------------------------
-Middle-aged	Medium	No	    Excellent	Yes
+Middle-aged Medium  No      Excellent   Yes
 
-Youth	    High	No	    Good	    No
-Youth	    Medium	No	    Good	    No
-Youth	    High	No	    Excellent	No
-Senior	    Medium	No	    Excellent	No
+Youth       High    No      Good        No
+Youth       Medium  No      Good        No
+Youth       High    No      Excellent   No
+Senior      Medium  No      Excellent   No
 
 STARTING POINT
                     p = 1 (positive)
