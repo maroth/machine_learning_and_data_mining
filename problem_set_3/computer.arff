@@ -8,18 +8,18 @@
 
 @DATA
 
-Middle-aged	High	Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Senior	    Low	    Yes	    Good	    Yes
-Middle-aged	High	Yes	    Good	    Yes
-Youth	    Low	    Yes	    Good	    Yes
-Senior	    Medium	Yes	    Good	    Yes
-Youth	    High    Yes	    Excellent	Yes
-Middle-aged	Medium	No	    Excellent	Yes
-Middle-aged	Low	    Yes	    Excellent	Yes
+Middle-aged High    Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Senior      Low     Yes     Good        Yes
+Middle-aged High    Yes     Good        Yes
+Youth       Low     Yes     Good        Yes
+Senior      Medium  Yes     Good        Yes
+Youth       High    Yes     Excellent   Yes
+Middle-aged Medium  No      Excellent   Yes
+Middle-aged Low     Yes     Excellent   Yes
 
-Youth	    High	No	    Good	    No
-Youth	    Medium	No	    Good	    No
-Youth	    High	No	    Excellent	No
-Senior	    Low	    Yes	    Excellent	No
-Senior	    Medium	No	    Excellent	No
+Youth       High    No      Good        No
+Youth       Medium  No      Good        No
+Youth       High    No      Excellent   No
+Senior      Low     Yes     Excellent   No
+Senior      Medium  No      Excellent   No
