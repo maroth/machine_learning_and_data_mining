@@ -1,0 +1,125 @@
+The Genders of Taylor and Robin
+===============================
+
+
+Here is our knowledge:
+
+Weight  S-Size  Sex
+-------------------
+82      45      male
+80      45      male
+77      43      male
+72      43      male
+60      39      female
+64      41      female
+59      40      female
+65      41      female
+
+
+Invent the characters:
+
+Taylor weighs 65 kg and has shoe size 42.
+Robin weighs 70 kg and has shoe size 44.
+
+
+Our evidence () is as follows:
+
+Evidence Taylor: 
+    E(t) = [w=65, s=42]
+
+Evidence Robin:  
+    E(r) = [w=70, s=44]
+
+
+The chances of being male or female are:
+    P[male]   = 4 / 8 = 0.5
+    P[female] = 4 / 8 = 0.5
+
+
+We assume that weight and shoe size are in a normal distribution.
+
+Weight in males:
+    μ(wm) = (82 + 80 + 77 + 72) / 4
+          = 77.75
+
+    σ(wm) = sqrt(((82 - μ(wm))^2 + (80 - μ(wm))^2  + (77 - μ(wm))^2 + (72 - μ(wm))^2) / 4)
+          = sqrt(((82 - 77.75)^2 + (80 - 77.75)^2  + (77 - 77.75)^2 + (72 - 77.75)^2) / 4)
+          = 3.76662979333
+         ~= 3.77
+    
+
+Shoe size in males:
+    μ(sm) = (45 + 45 + 43 + 43) / 4
+          = 44
+
+    σ(sm) = sqrt(((45 - μ(sm))^2 + (45 - μ(sm))^2  + (43 - μ(sm))^2 + (43 - μ(sm))^2) / 4)
+          = sqrt(((45 - 44)^2 + (45 - 44)^2  + (43 - 44)^2 + (43 - 44)^2) / 4)
+          = 1
+         
+
+Weight in females:
+    μ(wf) = (60 + 64 + 59 + 65) / 4
+          = 62
+
+    σ(wf) = sqrt(((60 - μ(wf))^2 + (64 - μ(wf))^2  + (59 - μ(wf))^2 + (65 - μ(wf))^2) / 4)
+          = sqrt(((60 - 62)^2 + (64 - 62)^2  + (59 - 62)^2 + (65 - 62)^2) / 4)
+          = 2.5495097568
+         ~= 2.55
+
+
+Shoe size in females:
+    μ(sf) = (39 + 41 + 40 + 41) / 4
+          = 40.25
+
+    σ(sf) = sqrt(((39 - μ(wf))^2 + (41 - μ(wf))^2  + (40 - μ(wf))^2 + (41 - μ(wf))^2) / 4)
+          = sqrt(((39 - 40.25)^2 + (41 - 40.25)^2  + (40 - 40.25)^2 + (41 - 40.25)^2) / 4)
+          = 0.82915619758
+         ~= 0.83
+
+    
+    
+
+Now we analyze the chance of being male inaependently for all the features we have of Taylor:
+
+    P[w=65|male] = 
+
+P[Bread|Scot] = 6 / 7
+P[!Lager|Scot] = 3 / 7
+P[Whiskey|Scot] = 4 / 7
+P[Porr|Scot] = 5 / 7
+P[!Socc|Scot] = 4 / 7
+
+Now for not being a Scot:fdsa
+
+P[Bread|!Scot] = 3 / 6
+P[!Lager|!Scot] = 3 / 6
+P[Whiskey|!Scot] = 2 / 6
+P[Porr|!Scot] = 3 / 6
+P[!Socc|!Scot] = 2 / 6
+
+Next, we can multiply over all the various features, as we assume them to be statistically independent:
+
+P[Scot|E] = P[Bread|Scot] * P[!Lager|Scot] * P[Whiskey|Scot] * P[Porr|Scot] * P[!Socc|Scot] * P[Scot] / P[E]
+P[!Scot|E] = P[Bread|!Scot] * P[!Lager|!Scot] * P[Whiskey|!Scot] * P[Porr|!Scot] * P[!Socc|!Scot] * P[!Scot] / P[E]
+
+Putting in the values from above gives us:
+
+P[Scot|E] = (7/13) * (6/7) * (3/7) * (4/7) * (5/7) * (4/7) * (7/13) / P[E]
+P[!Scot|E] = (3We can ignore the P[E] as it issdas constant. So we get the numerical result:
+
+P[Scot|E] = 0.02484172028 
+P[!Scot|E] = 0.00641025641 
+
+Now all we need to do is normalize to a standard probability:
+
+P[Scot|E] = 0.02484172028 / (0.02484172028 + 0.00641025641) = 0.79488476925
+P[!Scot|E] = 0.00641025641 / (0.02484172028 + 0.00641025641) = 0.20511523074
+
+So therefore, there is an 80% chance that Logan is in fact a Scot.
+
+Comparing this value with the one output by WEKA:
+
+PWEKA[Scot|E] = 0.822  
+PWEKA[!Scot|E] = 0.178
+
+The valuee, but not precicely accurate. Either these are rounding errors, or I made some mistake. I do think they way I did the math is correct in general, though, so I decided to leave it as it is.
