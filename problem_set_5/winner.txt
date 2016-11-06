@@ -1,0 +1,23 @@
+Fix a significance level:
+
+The problem states that we need to show that there is less than a 5% chance that there is no difference in true speed between the different racers. So we choose a significance level of 5.
+
+Divide the significance level by two:
+
+-> Significance Level = 2.5%
+
+We have ten samples, so we have 9 degrees of freedom. This fives us:
+
+-> Confidence Limit: 2.262
+
+Then we use the formula for the t-statistic:
+
+t_obs (Han-Luke):  -2.5610632643
+t_obs (Luke-Nien): -0.6225374401
+t_obs (Nien-Han):   1.9159256838
+
+For the calculations of the confidence levesl, see the attached spreadsheet.
+
+The confidence levels for Luke-Nien und Nien-Han are smaller than the confidence limit. This means the difference is significant, and the null hypothesis (that these runners are of equal speed) can be rejected.
+
+However, the confidence level for Han and Luke is larger than the confidence limit. This means that the two racers might be of equal skill: They should race again.

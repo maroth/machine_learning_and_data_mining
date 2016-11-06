@@ -1,0 +1,84 @@
+54 cat images in total
+
+10 VC
+44 JC
+
+We have a recommender system that has the goal of finding only the very cute images.
+
+Running the system on our test set results in:
+
+8 VC
+10 JC
+
+We expect all results to be VC, but this is what is really returned:
+
+VC, VC, JC, VC, JC, VC, VC, VC, VC, JC, JC, JC, JC, JC, JC, VC, JC, JC
+
+
+----------------
+CONFUSION MATRIX
+----------------
+
+True positives: 8
+False positives: 10
+True negative: 2
+False negative: 34
+
+So the confusion matrix is:
+
+|---------------|
+|    | VC |  JC |
+|---------------|
+| VC |  8 |   2 |
+|---------------|
+| JC | 10 |  34 |
+|---------------|
+
+
+----------------
+PRECISION
+----------------
+
+Precision = TP / (TP + FP) 
+          = 8 / (8 + 10) 
+          = 8 / 18 
+          = 0.44
+
+----------------
+RECALL
+----------------
+
+Recall = TP / (TP + FN) 
+       = 8 / (8 + 34) 
+       = 8 / 42 
+       = 0.19
+
+----------------
+F1
+----------------
+
+F1 = (2 * Recall * Precision) / (Recall + Precision) 
+   = (2 * 0.19 * 0.44) / ( 0.19 + 0.44) 
+   = 0.27
+
+
+----------------
+AT EACH RANK
+----------------
+
+           VC,  VC,  JC,  VC,  JC,  VC,  VC,  VC,  VC,  JC,  JC,  JC,  JC,  JC,  JC,  VC,  JC,  JC
+t pos      1    2    2    3    3    4    5    6    7    7    7    7    7    7    7    8    8    8
+f pos      0    0    1    1    2    2    2    2    2    3    4    5    6    7    8    8    9    10
+f neg      9    8    8    7    7    6    5    4    3    3    3    3    3    3    3    2    2    2
+
+Precision  1    1    2/3  3/4  3/5  2/3  5/7  3/4  7/9  7/10 7/11 7/12 7/13 1/2  7/15 1/2  8/17 4/9
+Recall     1/9  1/5  1/5  3/10 3/10 2/5  1/2  3/5  7/10 7/10 7/10 7/10 7/10 7/10 7/10 4/5  4/5  4/5
+
+
+----------------
+BONUS
+----------------
+
+There must always be such a balance point, because Precision starts at close to one and trends towards 0, and Recall starts at close to 0 and trends towards one. They are bound to intersect at some point.
+
+The F1-value will be lowest at this intersection point, because of the factor in the top part of the equation. When both values are low, the product will be low.
