@@ -1,0 +1,9 @@
+                    zoo     vote    soybean  iris    bank
+Naïve Bayes         100.0%  90.3%   93.7%    96.0%   63.0%
+Simple Rule (OneR)  100.0%  95.3%   40.8%    96.0%   68.0%
+C4.5        (J48)    99.0%  97.2%   96.3%    98.0%   81.0%  
+
+Conclusion: In many of these datasets, the decision tree does not significalty increase the outcome of the model in comparison to the very simple classifier OneR. However, for the soybean and bank classifiers, it does significalty improve results. The other way around, the decision tree is never significantly worse than the simple rules. It is only worse in the zoo dataset where it wrongly classifies a single value.
+
+In general, decision trees seem like a very good model to use for these datasets, certainly better than the other classifiers tested.
+

@@ -1,42 +1,13 @@
-Bread   Lager   Whiskey Porr    Socc    Scot
--------------------------------------------
-No	No	Yes	Yes	Yes	No
-Yes	No	Yes	Yes	Yes	No
-Yes	Yes	No	No	Yes	No
-Yes	Yes	No	No	No	No
-No	Yes	No	No	Yes	No
-No	No	No	Yes	No	No
-
-Yes	No	Yes	Yes	Yes	Yes
-No	Yes	No	No	Yes	Yes
-Yes	Yes	Yes	Yes	No	Yes
-Yes	Yes	No	Yes	No	Yes
-Yes	Yes	No	Yes	Yes	Yes
-Yes	No	Yes	Yes	No	Yes
-Yes	No	Yes	No	No	Yes
-
-
-E = [Bread, !Lager, Whiskey, Porridge, !Socc]
-
-P[Scot] = 7 / 13
-P[!Scot] = 6 / 13
-
-P[Bread|Scot] = 6 / 7
-P[!Lager|Scot] = 3 / 7
-P[Whiskey|Scot] = 4 / 7
-P[Porr|Scot] = 5 / 7
-P[!Socc|Scot] = 4 / 7
-
-P[Bread|!Scot] = 3 / 6
-P[!Lager|!Scot] = 3 / 6
-P[Whiskey|!Scot] = 2 / 6
-P[Porr|!Scot] = 3 / 6
-P[!Socc|!Scot] = 2 / 6
-
-P[Scot|E] = P[Bread|Scot] * P[!Lager|Scot] * P[Whiskey|Scot] * P[Porr|Scot] * P[!Socc|Scot] * P[Scot] / P[E]
-P[Scot|E] = (7/13) * (6/7) * (3/7) * (4/7) * (5/7) * (4/7) * (7/13) / P[E]
-
-P[!Scot|E] = P[Bread|!Scot] * P[!Lager|!Scot] * P[Whiskey|!Scot] * P[Porr|!Scot] * P[!Socc|!Scot] * P[!Scot] / P[E]
-P[!Scot|E] = (3/6) * (3/6) * (2/6) * (3/6) * (2/6) * (6/13) / P[E]
-
-P[Scot|E] = (
+S01	No	No	Yes	Yes	Yes	No
+S02	Yes	No	Yes	Yes	Yes	No
+S03	Yes	Yes	No	No	Yes	No
+S04	Yes	Yes	No	No	No	No
+S05	No	Yes	No	No	Yes	No
+S06	No	No	No	Yes	No	No
+S07	Yes	No	Yes	Yes	Yes	Yes
+S08	No	Yes	No	No	Yes	Yes
+S09	Yes	Yes	Yes	Yes	No	Yes
+S10	Yes	Yes	No	Yes	No	Yes
+S11	Yes	Yes	No	Yes	Yes	Yes
+S12	Yes	No	Yes	Yes	No	Yes
+S13	Yes	No	Yes	No	No	Yes

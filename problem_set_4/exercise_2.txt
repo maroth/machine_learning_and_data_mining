@@ -1,0 +1,105 @@
+In essence, there are two different ways to prune a decision tree: Pre-Pruning and Post-Pruning.
+
+Weka does not include an option for pre-pruning, because it's not very commonly used. In pre-pruning, the construction of the descision tree is halted prematurely, when there is no statistically significant association btween any attribute and the class at a particular node. Commonly, the chi squared test is used to determine that. 
+
+    P   N
+c1  1   2   3
+c2  2   1   3
+c3  1   2   3
+    3   3   9
+
+n = 9
+
+chi^2 = 0.9
+chi^2 limit: 
+
+
+
+
+For example, if a node in a desiscion tree has three values c1, c2, and c3, and two possible outcomes P and N. Then we use the chi-squared test to evaluate whether there is enough statistical significance to the three values to create another node in the decision tree. For example, if for c1, c2, and c3 the outcomes of P an N are of equal number, there is no statistical significance. 
+
+For Post-Pruning, there are quite a few different variants included in Weka. I based my knowlegde on the following mailing list entry: 
+http://weka.8497.n7.nabble.com/J48-pruning-td22946.html
+
+It describes the various switches in the J48 decision tree classifier in Weka.
+
+The default behaviour is post-pruning with subtree-raising (pruning confidence interval 0.25)
+
+-S: Use subtree replacement rather than subtree-raising for post-pruning
+-C: change confidence interval
+
+-R: Use reduced-error pruning instead of subtree-raising or subtree replacement. Does not use a confidence interval.
+    Reduced-error pruning uses a holdout of the training set to do the pruning.
+-N: Sets the number of folds (1 fold is held out of the training set to do the pruning). 
+
+-U: Disable all pruning
+
+
+
+So there are the following ways of creating the decision tree:
+
+- No pruning at all: -U
+- Reduced-Error Pruning: -R -N 5
+- Subtree-Raising: -C 0.25
+- Subtree Replacement: -S -C 0.25
+
+
+I created an pruned and an unpruned decision tree for the bank example. Their visualizations can be found under exercise_2_pruned_tree.png and exercise_2_unpruned_tree.png respectively.
+
+The unpruned tree is much larger than the pruned tree. This is bad for two reasons. First, a more complex tree is harder to understand and takes more time to use as a classifier. Also, the larger tree has a much higher chance of overfitting to the training data than a smaller, pruned tree. This bears the risk that the tree might be very good at predicting the test set, it will be worse than a pruned tree at predicting a test set not used for training.
+
+I can see three different pruning techniques offered by the Weka implementation of J48 (see the list above), but they fit into two categories: Reduced error pruning and Cost complexity pruning (subtree-raising/replacement).
+
+Reduced error pruning: Replace a node in the decision tree with its most popular class. Test the tree on a hold out of the training set. If the accuracy is not affected, keep the change. If the accuracy is affected, don't keep the change.
+
+Example: 
+A = true
+  B = 1
+    yes
+  B = 2
+    no
+  B = 3
+    yes
+A = false
+  no
+
+We can replace the entire A = true node with its most popular class, which is the leaf yes. The resulting tree is then:
+
+A = true
+  yes
+A = false
+  no
+
+Subtree raising: A subtree of the decision tree is replaced by a sub-sub-tree, in effect re-distributing the established tree. A modified variant, subtree replacement, replaces a node with is most popular class, moving from the bottom of the tree to the top. In any case, the replacement is done using the confidence interval C. This confidence interval is derived from the training data using the standard bernoulli process method, and thus has limited statistical trustworthiness (danger of overfitting).
+
+Example:
+A = true
+  B = 1
+    C = "red"
+      yes
+    C = "green
+      no
+    C = "yellow"
+      yes
+  B = 2
+    no
+  B = 3
+    yes
+A = false
+  no
+
+With subtree raising, we can move the C subtree up one step:
+
+
+A = true
+  C = "red"
+    yes
+  C = "green
+    no
+  C = "yellow"
+    yes
+A = false
+  no
+
+For both methods, numerical examples exist in the script.
+
