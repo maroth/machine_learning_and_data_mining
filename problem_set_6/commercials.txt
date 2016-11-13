@@ -1,0 +1,50 @@
+Divide into 5 individual training and testing sets.
+
+set 1:
+
+ a b   <-- classified as
+ 1 0 | a = Male
+ 1 0 | b = Female
+
+
+set 2:
+
+ a b   <-- classified as
+ 1 1 | a = Male
+ 0 0 | b = Female
+
+
+set 3:
+
+ a b   <-- classified as
+ 0 0 | a = Male
+ 1 1 | b = Female
+
+
+set 4:
+
+ a b   <-- classified as
+ 1 1 | a = Male
+ 0 0 | b = Female
+
+
+set 5:
+
+ a b   <-- classified as
+ 1 0 | a = Male
+ 0 1 | b = Female
+ 
+sum of confusion matrix:
+
+ a b   <-- classified as
+ 4 2 | a = Male
+ 2 2 | b = Female
+
+
+5-Fold Cross Validation using WEKA:
+
+ a b   <-- classified as
+ 4 2 | a = Male
+ 2 2 | b = Female
+
+The sum of my individual matrixes matches the confusion matrix output by WEKA. Success!

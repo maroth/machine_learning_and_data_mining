@@ -1,0 +1,13 @@
+@RELATION commercial
+
+@ATTRIBUTE Magazine {Yes,No}
+@ATTRIBUTE Paper {Yes,No}
+@ATTRIBUTE Internet {Yes,No}
+@ATTRIBUTE TV {Yes,No}
+@ATTRIBUTE Age NUMERIC
+@ATTRIBUTE Gender {Male,Female}
+
+@DATA
+
+Yes	Yes	Yes	Yes	35	Male
+No	No	No	No	27	Male

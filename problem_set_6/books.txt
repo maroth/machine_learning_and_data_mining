@@ -1,0 +1,5 @@
+Cross-validation can be used to compare different models with different parameters. I might use cross-validation to compare decision trees with naive bayesian with support vector machines. I can the use the model that performed best.
+
+When I determined which model is best, I can train it on the entire training set. For training a production model, there is really no reason to leave out parts of the training set available, except to pervent overfitting.
+
+Using 10-fold cross-validation, the test set will always be of size n/10, so in our case 7 or 8. Since all the test sets will have the same size, the first, sixth, seventh and tenth all will have that size during 10-fold cross-validation.
